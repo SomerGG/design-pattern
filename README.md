@@ -234,3 +234,8 @@ ASM 框架写 Class 字节码，cglib 实现更为复杂，生成代理类的效
 - cglib 不能代理 final 的方法。
 - JDK 调用代理方法，是通过反射机制调用；cglib 是通过 FastClass 机制直接调用方法，所以 cglib 的执行效率更高。
 
+**Spring 中代理模式选择**  
+- 当 Bean 没有实现接口时，使用 JDK 动态代理。
+- 当 Bean 没有使用接口时，使用 cglib 动态代理。
+- Spring 可以通过配置强制使用 cglib，只需要在 Spring 的配置文件中加入```
+<aop:aspectj-autoproxy proxy-target-class="true" />```
