@@ -12,7 +12,7 @@ public class CGLibProxyTest {
 
     public static void main(String[] args) {
         try {
-            System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/johiroshi/cglib_class");
+//            System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/johiroshi/cglib_class");
             Customer customer = (Customer) new CGLibMeipo().getInstance(Customer.class);
             System.out.println(customer);
             customer.findLove();

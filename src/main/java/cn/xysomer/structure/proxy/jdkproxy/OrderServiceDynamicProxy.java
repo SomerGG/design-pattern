@@ -25,6 +25,15 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
         return Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(), this);
     }
 
+    /**
+     * 对代理实例进行方法调用
+     *
+     * @param proxy  代理对象
+     * @param method 目标类的真实方法
+     * @param args   目标方法的参数
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         before(args[0]);
@@ -40,8 +49,6 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
     }
 
     /**
-     *
-     *
      * @param target 订单对象
      */
     public void before(Object target) {

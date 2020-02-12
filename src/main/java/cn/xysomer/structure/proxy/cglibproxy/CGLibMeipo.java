@@ -20,13 +20,23 @@ public class CGLibMeipo implements MethodInterceptor {
         return enhancer.create();
     }
 
+    /**
+     * 拦截的方法
+     *
+     * @param o           代理对象
+     * @param method      要被拦截的方法
+     * @param objects     要被拦截方法的参数
+     * @param methodProxy 要触发父类的方法对象
+     * @return
+     * @throws Throwable
+     */
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         before();
         /**
          * 因为生成的类是子类，生成的子类是为了通过继承父类实现父类的方法，以便进行相应增强，增强之前需要先调用父类的相关逻辑
          */
-        Object object = methodProxy.invokeSuper(o, objects);
         after();
+        Object object = methodProxy.invokeSuper(o, objects);
         return object;
     }
 
