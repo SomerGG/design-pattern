@@ -16,7 +16,7 @@ import java.util.Date;
 public class OrderServiceDynamicProxy implements InvocationHandler {
 
     private SimpleDateFormat format = new SimpleDateFormat("yyyy");
-    //保存代理对象
+    //被代理对象，把引用保存下来
     private Object target;
 
     public Object getInstance(Object target) {
