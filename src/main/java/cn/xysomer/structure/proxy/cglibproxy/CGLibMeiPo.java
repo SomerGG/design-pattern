@@ -11,8 +11,15 @@ import java.lang.reflect.Method;
  * @Author Somer
  * @Date 2020-02-12 19:11
  */
-public class CGLibMeipo implements MethodInterceptor {
+public class CGLibMeiPo implements MethodInterceptor {
 
+    /**
+     * 生成代理对象
+     *
+     * @param clazz
+     * @return
+     * @throws Exception
+     */
     public Object getInstance(Class<?> clazz) throws Exception {
         Enhancer enhancer = new Enhancer();//相当于 Proxy，代理的工具类
         enhancer.setSuperclass(clazz);//传入的父类
@@ -35,8 +42,8 @@ public class CGLibMeipo implements MethodInterceptor {
         /**
          * 因为生成的类是子类，生成的子类是为了通过继承父类实现父类的方法，以便进行相应增强，增强之前需要先调用父类的相关逻辑
          */
-        after();
         Object object = methodProxy.invokeSuper(o, objects);
+        after();
         return object;
     }
 

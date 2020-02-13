@@ -19,6 +19,12 @@ public class OrderServiceDynamicProxy implements InvocationHandler {
     //被代理对象，把引用保存下来
     private Object target;
 
+    /**
+     * 生成代理对象
+     *
+     * @param target
+     * @return
+     */
     public Object getInstance(Object target) {
         this.target = target;
         Class<?> clazz = target.getClass();
