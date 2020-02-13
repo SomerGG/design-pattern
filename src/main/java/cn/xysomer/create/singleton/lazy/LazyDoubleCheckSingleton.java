@@ -19,7 +19,6 @@ public class LazyDoubleCheckSingleton {
                     return new LazyDoubleCheckSingleton();
                 }
             }
-            lazyDoubleCheckSingleton = new LazyDoubleCheckSingleton();
         }
         return lazyDoubleCheckSingleton;
     }
