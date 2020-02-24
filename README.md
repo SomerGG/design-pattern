@@ -185,9 +185,9 @@ JDK 提供的 Cloneable 接口，实现快速复制。
 动态配置和替换被代理的对象
 
 **JDK 动态代理生成对象的步骤**
-- 通过实现 InvocationHandler 接口来定义自己的 InvocationHandler。
+- 通过实现 InvocationHandler 接口来定义自己的 InvocationHandler（代理类）。
 - 通过构造方法获取到被代理类的引用，并且通过反射获取到它的所有接口和类加载器。
-- 通过 JDK 的 Proxy.newProxyInstance(被代理类的类加载器, 被代理类的全部接口, 自定义的 InvocationHandler) 
+- 通过 JDK 的 Proxy.newProxyInstance(代理类的类加载器, 被代理类, 代理类) 
 方法重新生成一个实现了被代理类的新类，并且覆盖了被代理类所有接口的方法。
 - 动态生成 Java 代码（在内存中完成），把增强的逻辑加入到新生成的代码中。
 - 编译生成新的 Java 代码的 class 文件。
